@@ -1,0 +1,28 @@
+﻿<form novalidate (ngSubmit)="onSubmit(regionFrm)" [formGroup]="regionFrm">
+    <div>
+        <h1 md-dialog-title><span><md-icon>create</md-icon>{{modalTitle}}</span></h1>
+    </div>
+    <div style="padding-bottom:1px;background-color:#d8d8d8"></div>
+    <div md-dialog-content class="md-dialog-container">
+        <div class="frm-ctrl">
+            <md-input-container>
+                <input mdInput placeholder="Name" formControlName="Name">
+            </md-input-container>
+            <div *ngIf="formErrors.Name" class="text-danger">
+                {{ formErrors.Name }}
+            </div>
+        </div>
+        <div class="frm-ctrl">
+            <md-input-container>
+                <input mdInput placeholder="Timezone" formControlName="Timezone">
+            </md-input-container>
+            <div *ngIf="formErrors.Timezone" class="text-danger">
+                {{ formErrors.Timezone }}
+            </div>
+        </div>
+    </div>
+    <md-dialog-actions class="md-dialog-footer" align="end">
+        <button color="warn" type="button" md-raised-button (click)="dialogRef.close()">Cancel</button>&nbsp;
+        <button type="submit" color="primary" [disabled]="regionFrm.invalid" md-raised-button>{{modalBtnTitle}}</button>
+        </md-dialog-actions>
+</form>
